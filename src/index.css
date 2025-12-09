@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@layer base {
+  /* Custom base styles can go here */
+  body{
+    @apply bg-black text-white relative font-sans h-screen overflow-x-hidden;
+  }
+}
+
+.logo-glow-hover {
+    transition: all 0.4s ease;
+}
+
+/* Darker Blue–Purple Glow for dark theme */
+.logo-glow-hover:hover {
+    filter:
+        drop-shadow(0 0 15px rgba(0, 119, 204, 0.6))   /* Darker blue */
+        /*drop-shadow(0 0 20px rgba(90, 30, 190, 0.5))   /* Darker purple */
+        drop-shadow(0 0 35px rgba(0, 119, 204, 0.4))   /* Blue faint */
+        /*drop-shadow(0 0 50px rgba(90, 30, 190, 0.3));  /* Purple faint */
+}
+
+/* Add this CSS to your global stylesheet */
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%) translateZ(0);
+    }
+    100% {
+        /* Move the text element completely to the left, repeating the content */
+        transform: translateX(-100%) translateZ(0); 
+    }
+}
+
+.scrolling-text {
+    /* Apply the animation */
+    animation: scroll-left 30s linear infinite; 
+    /* Adjust '30s' to change speed */
+    /* Ensure the text is long enough to fill the screen twice */
+    width: 200%; 
+    /*new*/
+    will-change: transform; /* Optimize for performance */ 
+    transform: translateZ(0); /* Enable GPU acceleration */
+    backface-visibility: hidden; /* Improve rendering */
+    -webkit-backface-visibility: hidden; /* Safari fix */
+
+
+    line-height: 4rem; /* Match the height of the parent div */
+}
+
+.text-glow {
+    /* Layered glow effect matching the image */
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.8),   /* Bright inner glow */
+        /*0 0 20px rgba(255, 255, 255, 0.6),   /* Medium inner glow */
+        0 0 35px rgba(255, 255, 255, 0.5),   /* Medium outer glow */
+        /*0 0 40px rgba(255, 255, 255, 0.3),   /* Wide outer glow */
+        0 0 60px rgba(255, 255, 255, 0.2);   /* Extended glow */
+        /*0 0 80px rgba(255, 255, 255, 0.1);   /* Soft diffused edge */
+    will-change: text-shadow; /* Optimize for performance */
+}
+
+.footer-container {
+  background: transparent !important; /* Dark background */
+  color: #cccccc; /* Light grey text */
+  padding: 40px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border-top: 1px solid #333; /* Subtle line at the top */
+}
+
+.footer-logo img {
+  max-width: 150px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.footer-contact p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between links */
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+}
+
+.contact-item {
+  color: #e0e0e0; /* Lighter text for links */
+  text-decoration: none;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+  color: #ffffff; /* White on hover */
+}
+
+.contact-item .icon {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  font-size: 0.85em;
+  color: #888888; /* Even lighter grey for bottom text */
+}
+
+.footer-bottom a {
+  color: #888888;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #cccccc;
+}
+
